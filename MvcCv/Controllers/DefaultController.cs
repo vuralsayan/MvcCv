@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcCv.Models.Entity; // Entity katmanını ekledik
 
 namespace MvcCv.Controllers
 {
     public class DefaultController : Controller
     {
         // GET: Default
+
+        DbCvEntities db = new DbCvEntities(); // Entity katmanından nesne türettik  
         public ActionResult Index()
         {
-            return View();
+            var degerler = db.TblHakkimda.ToList();     // Hakkımda tablosundaki verileri listele
+            return View(degerler);                     // View'e gönder
         }
     }
 }
