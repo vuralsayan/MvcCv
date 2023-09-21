@@ -47,8 +47,19 @@ namespace MvcCv.Controllers
             return PartialView(sertifika);
         }
 
-        public PartialViewResult iletisim()
+        [HttpGet]
+        public PartialViewResult iletisim() //sayfam yüklendiğinde çalışan kısım
         {
+            return PartialView();
+        }
+
+        [HttpPost]
+
+        public PartialViewResult iletisim(Tbliletisim t) //butona bastığım zaman çalışan kısım 
+        {
+            t.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            db.Tbliletisim.Add(t);
+            db.SaveChanges();
             return PartialView();
         }
     }
