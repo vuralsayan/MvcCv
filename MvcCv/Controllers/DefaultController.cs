@@ -17,5 +17,11 @@ namespace MvcCv.Controllers
             var degerler = db.TblHakkimda.ToList();     // Hakkımda tablosundaki verileri listele
             return View(degerler);                     // View'e gönder
         }
+
+        public PartialViewResult Deneyim()
+        {
+            var deneyimler = db.TblDeneyimlerim.ToList(); // Deneyimlerim tablosundaki verileri listele
+            return PartialView(deneyimler);
+        }
     }
 }
