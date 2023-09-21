@@ -23,5 +23,11 @@ namespace MvcCv.Controllers
             var deneyimler = db.TblDeneyimlerim.ToList(); // Deneyimlerim tablosundaki verileri listele
             return PartialView(deneyimler);
         }
+
+        public PartialViewResult Egitimlerim()
+        {
+            var egitimler = db.TblEgitimlerim.ToList(); // Egitimlerim tablosundaki verileri listele
+            return PartialView(egitimler);
+        }
     }
 }
