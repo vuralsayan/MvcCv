@@ -31,5 +31,12 @@ namespace MvcCv.Controllers
             repo.TAdd(p);                                       //DeneyimRepository'deki TAdd() metodunu çağırır.
             return RedirectToAction("Index");                   //Index sayfasına yönlendirir.
         }
+
+        public ActionResult DeneyimSil(int id)
+        {
+            TblDeneyimlerim t = repo.Find(x => x.ID == id);     //GenericRepository'deki Find() metodunu çağırır.
+            repo.TDelete(t);                                    //t değişkenini DeneyimRepository'deki TDelete() metoduna gönderir.
+            return RedirectToAction("Index");
+        }
     }
 }
