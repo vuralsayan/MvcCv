@@ -38,5 +38,24 @@ namespace MvcCv.Controllers
             repo.TDelete(t);                                    //t değişkenini DeneyimRepository'deki TDelete() metoduna gönderir.
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+
+        public ActionResult DeneyimGetir(int id)
+        {
+            TblDeneyimlerim t = repo.Find(x => x.ID == id);
+            return View(t);
+        }
+        [HttpPost]
+        public ActionResult DeneyimGetir(TblDeneyimlerim p)
+        {
+            TblDeneyimlerim t = repo.Find(x => x.ID == p.ID);
+            t.Baslik = p.Baslik;
+            t.AltBaslik = p.AltBaslik;
+            t.Tarih = p.Tarih;
+            t.Aciklama = p.Aciklama;
+            repo.TUpdate(t);                                    //GenericRepository'deki TUpdate() metodunu çağırır.
+            return RedirectToAction("Index");
+        }
     }
 }
