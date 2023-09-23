@@ -1,11 +1,14 @@
 ﻿@using MvcCv.Models.Entity;
 @model List<TblYeteneklerim>
 
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@{
+    string renk = "";
+}
+
 
 <!DOCTYPE html>
 <html>
@@ -35,12 +38,28 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
+                                            if (item.Oran >= 0 && item.Oran <= 50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                            }
+                                            if (item.Oran >= 51 && item.Oran <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                            }
+                                            if (item.Oran >= 71 && item.Oran <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                            }
+                                            if (item.Oran >= 85 && item.Oran <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                            }
                                             <tr>
                                                 <td>@item.ID</td>
                                                 <td>@item.Yetenek</td>
                                                 <td>
                                                     <div class="progress progress-xs">
-                                                        <div class="progress-bar progress-bar-danger" style="width: @item.Oran%"></div>
+                                                        <div class="@renk" style="width: @item.Oran%"></div>
                                                     </div>
                                                 </td>
                                                 <td><span class="badge bg-danger">@item.Oran%</span></td>
