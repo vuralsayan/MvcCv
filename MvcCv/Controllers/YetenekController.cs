@@ -11,12 +11,33 @@ namespace MvcCv.Controllers
     public class YetenekController : Controller
     {
         // GET: Yetenek
-        
+
         GenericRepository<TblYeteneklerim> repo = new GenericRepository<TblYeteneklerim>(); // GenericRepository sınıfından bir nesne ürettik.
         public ActionResult Index()
         {
             var yetenekler = repo.List();               // GenericRepository sınıfındaki List() metodunu çağırdık.
             return View(yetenekler);                    // List() metodundan dönen değeri View'a gönderdik.
         }
+
+        [HttpGet]
+        public ActionResult YeniYetenek()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult YeniYetenek(TblYeteneklerim p )
+        {
+            repo.TAdd(p);                              
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult YetenekSil(int id)
+        {
+            var yetenek = repo.Find(x => x.ID == id);
+            repo.TDelete(yetenek);
+            return RedirectToAction("Index");
+        }
+
     }
 }
