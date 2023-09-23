@@ -26,9 +26,9 @@ namespace MvcCv.Controllers
         }
 
         [HttpPost]
-        public ActionResult YeniYetenek(TblYeteneklerim p )
+        public ActionResult YeniYetenek(TblYeteneklerim p)
         {
-            repo.TAdd(p);                              
+            repo.TAdd(p);
             return RedirectToAction("Index");
         }
 
@@ -39,5 +39,24 @@ namespace MvcCv.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+
+        public ActionResult YetenekDuzenle(int id)
+        {
+            var yetenek = repo.Find(x => x.ID == id);
+            return View(yetenek);
+        }
+
+
+        [HttpPost]
+
+        public ActionResult YetenekDuzenle(TblYeteneklerim p)
+        {
+            var y = repo.Find(x => x.ID == p.ID); 
+            y.Yetenek = p.Yetenek;
+            y.Oran = p.Oran;
+            repo.TUpdate(y);
+            return RedirectToAction("Index");
+        }
     }
 }
