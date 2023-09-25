@@ -4,6 +4,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@{
+    string buttonColor = "";
+    string spanColor = "";
+}
 
 <!DOCTYPE html>
 <html>
@@ -24,11 +28,20 @@
                                     <!-- timeline time label -->
                                     @foreach (var item in Model)
                                     {
-
+                                        if (item.ID % 2 == 0)
+                                        {
+                                            buttonColor = "bg-primary";
+                                            spanColor = "bg-primary";
+                                        }
+                                        else
+                                        {
+                                            buttonColor = "bg-success";
+                                            spanColor = "bg-success";
+                                        }
 
                                         <div class="time-label">
-                                            <a href="/Sertifika/SertifikaGetir/@item.ID" class="btn btn-success">
-                                                <span class="bg-success">
+                                            <a href="/Sertifika/SertifikaGetir/@item.ID" class="btn @buttonColor">
+                                                <span class="@spanColor">
                                                     @item.Tarih
                                                 </span>
                                             </a>
@@ -49,6 +62,7 @@
                                         </div>
                                     }
                                 </div>
+                                <a href="/Sertifika/YeniSertifika" class="btn btn-info">Yeni Sertifika Girişi</a>
                             </div>
                         </div><!-- /.card-body -->
                     </div>
