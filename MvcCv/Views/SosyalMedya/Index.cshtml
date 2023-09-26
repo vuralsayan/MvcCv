@@ -21,7 +21,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <a href="/Yetenek/YeniYetenek" class="btn btn-primary">Yeni Sosyal Medya Hesabı Ekle</a>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Sosyal Medya Hesabı Ekle</button>
                                 <br /><br />
                                 <table class="table table-bordered" width="100%">
                                     <thead>
@@ -62,6 +62,30 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sosyal Medya Ekleme Penceresi</h4>
+                    </div>
+                    <form method="post" action="/SosyalMedya/Ekle">
+                        <div class="modal-body">
+                            <label>Sosyal Medya İsmi</label>
+                            <input type="text" name="Ad" class="form-control" />
+                            <br />
+                            <label>Sosyal Medya Linki</label>
+                            <input type="text" name="Link" class="form-control" />
+                            <br />
+                            <label>İkon Değeri</label>
+                            <input type="text" name="ikon" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

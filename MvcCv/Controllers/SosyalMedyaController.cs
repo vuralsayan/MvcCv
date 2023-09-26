@@ -15,7 +15,21 @@ namespace MvcCv.Controllers
         public ActionResult Index()
         {
             var veriler = repo.List();
-            return View(veriler);
+            return View(veriler);   
         }
+
+        [HttpGet]   
+        public ActionResult Ekle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Ekle(TblSosyalMedya p)
+        {
+            repo.TAdd(p);
+            return RedirectToAction("Index");   
+        }
+
     }
 }
