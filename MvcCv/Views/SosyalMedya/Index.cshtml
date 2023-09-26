@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@{ 
+    string durum = "";
+}
+
+
 <!DOCTYPE html>
 <html>
 <body class="hold-transition sidebar-mini">
@@ -28,6 +33,7 @@
                                         <tr>
                                             <th width="10%">ID</th>
                                             <th>Sosyal Medya</th>
+                                            <th>Durum</th> 
                                             <th width="10%">Düzenle</th>
                                             <th width="10%">Sil</th>
                                         </tr>
@@ -35,9 +41,19 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
+                                            if (item.Durum == true)
+                                            {
+                                                durum = "Aktif";
+                                            }
+
+                                            if (item.Durum == false)
+                                            {
+                                                durum = "Pasif";
+                                            }
                                             <tr>
                                                 <td>@item.ID</td>
                                                 <td>@item.Ad</td>
+                                                <td>@durum</td>
                                                 <td>
                                                     <a href="/SosyalMedya/SayfaGetir/@item.ID" class="btn btn-info btn-sm">
                                                         <i class="fas fa-pencil-alt"></i>

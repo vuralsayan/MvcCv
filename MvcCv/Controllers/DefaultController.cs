@@ -19,7 +19,7 @@ namespace MvcCv.Controllers
         }
         public PartialViewResult SosyalMedya()
         {
-            var sosyalMedya = db.TblSosyalMedya.ToList(); // sosyalMedya tablosundaki verileri listele
+            var sosyalMedya = db.TblSosyalMedya.Where(x=>x.Durum == true).ToList(); // sosyalMedya tablosundaki verileri listele
             return PartialView(sosyalMedya);
         }
 
