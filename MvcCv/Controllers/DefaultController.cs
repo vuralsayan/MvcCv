@@ -17,6 +17,11 @@ namespace MvcCv.Controllers
             var degerler = db.TblHakkimda.ToList();     // Hakkımda tablosundaki verileri listele
             return View(degerler);                     // View'e gönder
         }
+        public PartialViewResult SosyalMedya()
+        {
+            var sosyalMedya = db.TblSosyalMedya.ToList(); // sosyalMedya tablosundaki verileri listele
+            return PartialView(sosyalMedya);
+        }
 
         public PartialViewResult Deneyim()
         {
