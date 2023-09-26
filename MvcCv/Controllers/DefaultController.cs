@@ -7,6 +7,7 @@ using MvcCv.Models.Entity; // Entity katmanını ekledik
 
 namespace MvcCv.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default

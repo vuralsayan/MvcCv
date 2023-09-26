@@ -13,6 +13,7 @@ namespace MvcCv.Controllers
         // GET: Deneyim
 
         DeneyimRepository repo = new DeneyimRepository();
+
         public ActionResult Index()
         {
             var degerler = repo.List();                          //DeneyimRepository'deki List() metodunu çağırır.
