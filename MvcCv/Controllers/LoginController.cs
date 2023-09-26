@@ -36,5 +36,12 @@ namespace MvcCv.Controllers
             }
         }
 
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();  
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }
