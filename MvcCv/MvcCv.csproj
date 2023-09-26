@@ -2380,6 +2380,7 @@
     <Content Include="Views\Hobi\Index.cshtml" />
     <Content Include="Views\Default\SosyalMedya.cshtml" />
     <Content Include="Views\SosyalMedya\Index.cshtml" />
+    <Content Include="Views\SosyalMedya\SayfaGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
